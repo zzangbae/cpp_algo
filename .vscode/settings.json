@@ -6,6 +6,7 @@
         "**/requirements{/**,*}.{txt,in}": "pip-requirements",
         "queue": "cpp",
         "iostream": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "algorithm": "cpp"
     }
 }
