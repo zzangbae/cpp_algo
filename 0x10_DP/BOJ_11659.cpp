@@ -22,7 +22,8 @@ int main() {
     cin >> n >> m;
     for(int x = 1; x <= n; x++) {
         cin >> arr[x];
-        dp[x] = dp[x - 1] + arr[x];
+        dp[x] = dp[x - 1] + arr[x]; // dp3. dp[0] = 0으로 이미 초기화되어있어서, 초기값 설정 따로 안해둠
+        // dp2. 점화식
     }
     for(int tc = 0; tc < m; tc++) {
         int i, j;
