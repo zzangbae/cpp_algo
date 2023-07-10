@@ -2,27 +2,20 @@
 
 using namespace std;
 
-int dp[11];
+int dp[11]; // 1. 테이블 설정. i를 1, 2, 3으로 합으로 만드는 방법
 int main() {
-    // 테이블 정하기 -> 점화식 만들기 -> 초기값 만들기
-    // 정수 n이 주어졌을 때, 1, 2, 3의 합으로 나타내는 방법의 수
-    // dp[i] : 1, 2, 3의 합으로 i를 만드는 방법
-    // 점화식 : dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
-    // 초기값 : dp[1] = 1, dp[2] = 2, dp[3] = 3
+    // dp를 한번만 계산하기
+    // 3. 초기값 설정
+    dp[1] = 1; dp[2] = 2; dp[3] = 4;
+    for(int i = 4; i < 11; i++) {
+        // 2. 점화식 찾기
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
+    }
     int T;
     cin >> T;
     for(int tc = 0; tc < T; tc++) {
-        // dp 테이블 초기화
-        for(int i = 0; i < 11; i++) dp[i] = 0;
-        // 초기값
-        dp[1] = 1; 
-        dp[2] = 2; 
-        dp[3] = 4;
-        int n;  // n은 양수이며 11보다 작은 수
+        int n;
         cin >> n;
-        for(int i = 4; i <= n; i++) {
-            dp[i] = dp[i-1] + dp[i-2] + dp[i-3];
-        }
         cout << dp[n] << "\n";
     }
 
