@@ -5,6 +5,14 @@
 
 using namespace std;
 
+/**
+ * 시간초과 이유
+ * 큐에 넣을 때 방문했다는 표시를 하는 대신, 큐에서 빼낼 때 방문표시
+ * -> 같은 칸이 큐에 여러번 들어가게 됨 -> 시간초과 or 메모리초과
+ * ++ 시작점에 방문했다 표시안함
+ * -> 시작점을 두번 방문할 수 있음
+*/
+
 int arr[101][101];
 bool visited[101][101] = {false};
 int n, m;
@@ -67,12 +75,6 @@ int main() {
             q.push({nx, ny});   // 방문X이고, 불이 켜진곳은 재탐색 대상
         }
     }
-    // for(int i = 1; i <= n; i++) {
-    //     for(int j = 1; j <= n; j++) {
-    //         cout << arr[i][j] << " ";
-    //     }
-    //     cout << "\n";
-    // }
 
     int answer = 0;
     for(int i = 1; i <= n; i++) {
