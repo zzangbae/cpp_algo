@@ -72,3 +72,7 @@ https://blog.encrypted.gg/category/%EA%B0%95%EC%A2%8C/%EC%8B%A4%EC%A0%84%20%EC%9
 0x1F 트라이
 
 추가 문자열 기초
+
+기타문제(알고리즘 풀이)
+
+STL정리(라이브러리 활용 정리)
