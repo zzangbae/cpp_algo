@@ -69,7 +69,7 @@ int main() {
 
     std::cout << "\n";
 
-    // 내림차순(greate<>())을 활용
+    // 내림차순(greater<>())을 활용
     std::sort(std::begin(arr2), std::end(arr2), std::greater<>());
     for(int i = 0; i < 5; i++)
         std::cout << arr2[i] << " ";
