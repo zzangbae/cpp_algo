@@ -162,3 +162,41 @@ int main() {
 
   * 레퍼런스(참조) 전달 : 원본 데이터를 참조함으로써 복사 비용을 줄일 수 있음. + 원본데이터에 대한 변경을 수행할 수도 있기는 하나, 위 사례는 const를 통해서 변경 수행을 막음
   * 가변 매개변수 : 람다함수에서 매개변수를  `const` 로 받으면 읽기 전용으로 제한됨. `&` 를 사용하면 매개변수를 읽고 쓸 수 있음. 따라서, 정렬 조건을 구현하는 람다 함수에서 매개변수 값을 변경해야 할 경우 `&` 를 사용하여 가변 매개변수를 선언할 수 있음 
+
+#### 추가예시
+
+```CPP
+#include <iostream>
+#include <tuple>
+#include <algorithm>
+
+using namespace std;
+
+tuple<string, int, string> t[4];
+
+bool sort_logic(tuple<string, int, string> &t1, tuple<string, int, string> &t2) {
+    return get<1>(t1) > get<1>(t2);
+}
+
+int main()
+{
+    t[0] = make_tuple("기계과", 4, "유재석");
+    t[1] = make_tuple("화학과", 3, "박명수");
+    t[2] = make_tuple("수학과", 2, "노홍철");
+    t[3] = make_tuple("체육과", 1, "정형돈");
+    sort(t, t + 4, sort_logic);
+    
+    for(int i = 0; i < 4; i++) {
+        cout << get<2>(t[i]) << "\n";
+    }
+}
+/** 결과 - 내림차순
+유재석
+박명수
+노홍철
+정형돈
+*/
+```
+
+* 즉, sort에 인자로 들어가는 함수가 true값이 되는 방향으로 정렬이 이루어지게 된다.
+* 지금 예시의 경우, 왼쪽이 크기 때문에 tuple의 두번째 인자를 기준으로 내림차순이 이루어진 것.
