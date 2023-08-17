@@ -1,6 +1,6 @@
 ## tuple
 
-> #include <tuple>
+> #include <tuple> 라이브러리 불러와야함
 
 #### tuple
 
